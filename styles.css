@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Source+Sans+3:wght@400;600&display=swap');
+
+:root {
+  --ink: #2a2a2a;
+  --ink-soft: #5c5c5c;
+  --link: #5b6d82;
+  --line: #e6e6e6;
+}
+
+html, body {
+  background-color: #ffffff;
+  color: var(--ink);
+  font-family: 'Source Sans 3', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== Navigation (marge droite) ===== */
+body { padding-top: 0 !important; }
+
+.side-nav {
+  position: fixed;
+  top: 3rem;
+  right: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
+  z-index: 20;
+}
+
+.side-nav a {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.side-nav a:hover { color: var(--ink); }
+
+.side-nav a.active {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+}
+
+/* Sous 1150px, plus assez de marge : la nav repasse en haut, horizontale */
+@media (max-width: 1150px) {
+  .side-nav {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.2rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Headings ===== */
+h1 { font-size: 1.9rem; font-weight: 600; margin-bottom: 1.2rem; }
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
+}
+
+h2:first-of-type { margin-top: 1rem; }
+
+p { margin: 0 0 1rem 0; }
+p strong { color: var(--ink); }
+
+/* ===== Page d'accueil (2 colonnes) ===== */
+.about-layout {
+  display: flex;
+  gap: 3.5rem;
+  margin-top: 1rem;
+  align-items: flex-start;
+}
+
+.about-side {
+  flex: 0 0 220px;
+  text-align: center;
+}
+
+.about-photo {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.about-tagline {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about-links a {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.about-main {
+  flex: 1;
+  max-width: 62ch;
+  padding-top: 0.3rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+  .about-layout { flex-direction: column; }
+  .about-side { flex: none; }
+}

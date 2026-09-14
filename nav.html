@@ -1,0 +1,13 @@
+<nav class="side-nav" id="side-nav" aria-label="Navigation principale">
+  <a href="index.html">Accueil</a>
+  <a href="parcours.html">Formation &amp; Expérience</a>
+  <a href="projets.html">Projets</a>
+</nav>
+<script>
+(function () {
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('#side-nav a').forEach(function (a) {
+    if (a.getAttribute('href') === path) { a.classList.add('active'); }
+  });
+})();
+</script>

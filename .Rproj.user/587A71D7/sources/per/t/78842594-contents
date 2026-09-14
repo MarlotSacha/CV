@@ -1,0 +1,35 @@
+A = matrix(c(1/2,1/2,0,0,0,0,1/3,2/3,0,0,0,0,0,0,1/8,0,7/8,0,1/4,1/4,0,0,1/4,1/4,0,0,3/4,0,1/4,0,0,1/5,0,1/5,1/5,2/5),nrow = 6,byrow = TRUE)
+A
+
+#VP = 
+sol = eigen(t(A))
+sol
+sol$vectors[,1]
+
+pi1 = sol$vectors[,1]/sum(sol$vectors[,1])
+pi1
+
+pi2 = sol$vectors[,2]/sum(sol$vectors[,2])
+pi2
+
+
+traj = function(M,nsimul){
+  trajectoire = c(NULL)
+  position = sample(c(1,2,3,4,5,6),1)
+  trajectoire = c(trajectoire,position)
+  
+  for(n in 1:nsimul){
+    
+    position = sample(c(1,2,3,4,5,6), prob = M[position,], size = 1)
+    trajectoire = c(trajectoire,position)
+  }
+  
+  return(trajectoire)
+}
+
+test = traj(A, 1000)
+test
+
+round(A%^%1000,3)
+
+eigen(t(A))
